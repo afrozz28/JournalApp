@@ -1,0 +1,118 @@
+16:17:03.601 [cluster-ClusterId{value='68bea5e38349555b6e1ef000', description='null'}-ac-jpj8u7w-shard-00-01.gaiu0bm.mongodb.net:27017] INFO  org.mongodb.driver.cluster -- Exception in monitor thread while connecting to server ac-jpj8u7w-shard-00-01.gaiu0bm.mongodb.net:27017
+com.mongodb.MongoSocketReadException: Exception receiving message
+	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:702)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:574)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:410)
+	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:369)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:221)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:157)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: java.net.SocketException: Socket is closed
+	at java.base/java.net.Socket.setSoTimeout(Socket.java:1218)
+	at java.base/sun.security.ssl.BaseSSLSocketImpl.setSoTimeout(BaseSSLSocketImpl.java:638)
+	at java.base/sun.security.ssl.SSLSocketImpl.setSoTimeout(SSLSocketImpl.java:74)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:137)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:713)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:571)
+	... 5 common frames omitted
+16:17:03.601 [cluster-ClusterId{value='68bea5e38349555b6e1ef000', description='null'}-ac-jpj8u7w-shard-00-00.gaiu0bm.mongodb.net:27017] INFO  org.mongodb.driver.cluster -- Exception in monitor thread while connecting to server ac-jpj8u7w-shard-00-00.gaiu0bm.mongodb.net:27017
+com.mongodb.MongoSocketReadException: Exception receiving message
+	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:702)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:574)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:410)
+	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:369)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:221)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:157)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: java.net.SocketException: Socket is closed
+	at java.base/java.net.Socket.setSoTimeout(Socket.java:1218)
+	at java.base/sun.security.ssl.BaseSSLSocketImpl.setSoTimeout(BaseSSLSocketImpl.java:638)
+	at java.base/sun.security.ssl.SSLSocketImpl.setSoTimeout(SSLSocketImpl.java:74)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:137)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:713)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:571)
+	... 5 common frames omitted
+16:17:03.601 [cluster-ClusterId{value='68bea5e38349555b6e1ef000', description='null'}-ac-jpj8u7w-shard-00-02.gaiu0bm.mongodb.net:27017] INFO  org.mongodb.driver.cluster -- Exception in monitor thread while connecting to server ac-jpj8u7w-shard-00-02.gaiu0bm.mongodb.net:27017
+com.mongodb.MongoSocketReadException: Exception receiving message
+	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:702)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:574)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:410)
+	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:369)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:221)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:157)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: java.net.SocketException: Socket is closed
+	at java.base/java.net.Socket.setSoTimeout(Socket.java:1218)
+	at java.base/sun.security.ssl.BaseSSLSocketImpl.setSoTimeout(BaseSSLSocketImpl.java:638)
+	at java.base/sun.security.ssl.SSLSocketImpl.setSoTimeout(SSLSocketImpl.java:74)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:137)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:713)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:571)
+	... 5 common frames omitted
+16:17:03.621 [cluster-ClusterId{value='68bea5e38349555b6e1ef000', description='null'}-ac-jpj8u7w-shard-00-01.gaiu0bm.mongodb.net:27017] INFO  org.mongodb.driver.cluster -- Exception in monitor thread while connecting to server ac-jpj8u7w-shard-00-01.gaiu0bm.mongodb.net:27017
+com.mongodb.MongoSocketOpenException: Exception opening socket
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:70)
+	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:180)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:193)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:157)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: java.net.SocketException: Network is unreachable: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:547)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:602)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:304)
+	at com.mongodb.internal.connection.SocketStreamHelper.initialize(SocketStreamHelper.java:107)
+	at com.mongodb.internal.connection.SocketStream.initializeSocket(SocketStream.java:79)
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:65)
+	... 4 common frames omitted
+16:17:14.596 [cluster-rtt-ClusterId{value='68bea5e38349555b6e1ef000', description='null'}-ac-jpj8u7w-shard-00-01.gaiu0bm.mongodb.net:27017] INFO  org.mongodb.driver.connection -- Opened connection [connectionId{localValue:73, serverValue:45681}] to ac-jpj8u7w-shard-00-01.gaiu0bm.mongodb.net:27017
+16:17:14.677 [cluster-ClusterId{value='68bea5e38349555b6e1ef000', description='null'}-ac-jpj8u7w-shard-00-01.gaiu0bm.mongodb.net:27017] INFO  org.mongodb.driver.connection -- Opened connection [connectionId{localValue:76, serverValue:45681}] to ac-jpj8u7w-shard-00-01.gaiu0bm.mongodb.net:27017
+16:17:14.678 [cluster-ClusterId{value='68bea5e38349555b6e1ef000', description='null'}-ac-jpj8u7w-shard-00-01.gaiu0bm.mongodb.net:27017] INFO  org.mongodb.driver.cluster -- Monitor thread successfully connected to server with description ServerDescription{address=ac-jpj8u7w-shard-00-01.gaiu0bm.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=434822400, setName='atlas-vjm480-shard-0', canonicalAddress=ac-jpj8u7w-shard-00-01.gaiu0bm.mongodb.net:27017, hosts=[ac-jpj8u7w-shard-00-02.gaiu0bm.mongodb.net:27017, ac-jpj8u7w-shard-00-01.gaiu0bm.mongodb.net:27017, ac-jpj8u7w-shard-00-00.gaiu0bm.mongodb.net:27017], passives=[], arbiters=[], primary='ac-jpj8u7w-shard-00-02.gaiu0bm.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='aps1-az3'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='AP_SOUTH_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=297, topologyVersion=TopologyVersion{processId=68bc725c0c18adc746aac742, counter=3}, lastWriteDate=Mon Sep 08 16:17:09 IST 2025, lastUpdateTimeNanos=161125864947900}
+16:17:14.744 [cluster-ClusterId{value='68bea5e38349555b6e1ef000', description='null'}-ac-jpj8u7w-shard-00-02.gaiu0bm.mongodb.net:27017] INFO  org.mongodb.driver.cluster -- Exception in monitor thread while connecting to server ac-jpj8u7w-shard-00-02.gaiu0bm.mongodb.net:27017
+com.mongodb.MongoSocketException: No such host is known (ac-jpj8u7w-shard-00-02.gaiu0bm.mongodb.net)
+	at com.mongodb.ServerAddress.getSocketAddresses(ServerAddress.java:217)
+	at com.mongodb.internal.connection.SocketStream.initializeSocket(SocketStream.java:75)
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:65)
+	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:180)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:193)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:157)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: java.net.UnknownHostException: No such host is known (ac-jpj8u7w-shard-00-02.gaiu0bm.mongodb.net)
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(InetAddress.java:933)
+	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1543)
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:852)
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1532)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1384)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1305)
+	at com.mongodb.ServerAddress.getSocketAddresses(ServerAddress.java:209)
+	... 6 common frames omitted
+16:17:14.744 [cluster-ClusterId{value='68bea5e38349555b6e1ef000', description='null'}-ac-jpj8u7w-shard-00-00.gaiu0bm.mongodb.net:27017] INFO  org.mongodb.driver.cluster -- Exception in monitor thread while connecting to server ac-jpj8u7w-shard-00-00.gaiu0bm.mongodb.net:27017
+com.mongodb.MongoSocketException: No such host is known (ac-jpj8u7w-shard-00-00.gaiu0bm.mongodb.net)
+	at com.mongodb.ServerAddress.getSocketAddresses(ServerAddress.java:217)
+	at com.mongodb.internal.connection.SocketStream.initializeSocket(SocketStream.java:75)
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:65)
+	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:180)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:193)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:157)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: java.net.UnknownHostException: No such host is known (ac-jpj8u7w-shard-00-00.gaiu0bm.mongodb.net)
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(InetAddress.java:933)
+	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1543)
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:852)
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1532)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1384)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1305)
+	at com.mongodb.ServerAddress.getSocketAddresses(ServerAddress.java:209)
+	... 6 common frames omitted
+16:17:25.698 [cluster-ClusterId{value='68bea5e38349555b6e1ef000', description='null'}-ac-jpj8u7w-shard-00-00.gaiu0bm.mongodb.net:27017] INFO  org.mongodb.driver.connection -- Opened connection [connectionId{localValue:77, serverValue:46670}] to ac-jpj8u7w-shard-00-00.gaiu0bm.mongodb.net:27017
+16:17:25.698 [cluster-ClusterId{value='68bea5e38349555b6e1ef000', description='null'}-ac-jpj8u7w-shard-00-00.gaiu0bm.mongodb.net:27017] INFO  org.mongodb.driver.cluster -- Monitor thread successfully connected to server with description ServerDescription{address=ac-jpj8u7w-shard-00-00.gaiu0bm.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=332148600, setName='atlas-vjm480-shard-0', canonicalAddress=ac-jpj8u7w-shard-00-00.gaiu0bm.mongodb.net:27017, hosts=[ac-jpj8u7w-shard-00-02.gaiu0bm.mongodb.net:27017, ac-jpj8u7w-shard-00-01.gaiu0bm.mongodb.net:27017, ac-jpj8u7w-shard-00-00.gaiu0bm.mongodb.net:27017], passives=[], arbiters=[], primary='ac-jpj8u7w-shard-00-02.gaiu0bm.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='aps1-az1'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='AP_SOUTH_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=297, topologyVersion=TopologyVersion{processId=68bc70cf3d2e9e8982967d83, counter=4}, lastWriteDate=Mon Sep 08 16:17:20 IST 2025, lastUpdateTimeNanos=161136885393600}
+16:17:25.874 [cluster-rtt-ClusterId{value='68bea5e38349555b6e1ef000', description='null'}-ac-jpj8u7w-shard-00-02.gaiu0bm.mongodb.net:27017] INFO  org.mongodb.driver.connection -- Opened connection [connectionId{localValue:80, serverValue:48975}] to ac-jpj8u7w-shard-00-02.gaiu0bm.mongodb.net:27017
+16:17:25.874 [cluster-ClusterId{value='68bea5e38349555b6e1ef000', description='null'}-ac-jpj8u7w-shard-00-02.gaiu0bm.mongodb.net:27017] INFO  org.mongodb.driver.connection -- Opened connection [connectionId{localValue:78, serverValue:48889}] to ac-jpj8u7w-shard-00-02.gaiu0bm.mongodb.net:27017
+16:17:25.875 [cluster-ClusterId{value='68bea5e38349555b6e1ef000', description='null'}-ac-jpj8u7w-shard-00-02.gaiu0bm.mongodb.net:27017] INFO  org.mongodb.driver.cluster -- Monitor thread successfully connected to server with description ServerDescription{address=ac-jpj8u7w-shard-00-02.gaiu0bm.mongodb.net:27017, type=REPLICA_SET_PRIMARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=346951100, setName='atlas-vjm480-shard-0', canonicalAddress=ac-jpj8u7w-shard-00-02.gaiu0bm.mongodb.net:27017, hosts=[ac-jpj8u7w-shard-00-02.gaiu0bm.mongodb.net:27017, ac-jpj8u7w-shard-00-01.gaiu0bm.mongodb.net:27017, ac-jpj8u7w-shard-00-00.gaiu0bm.mongodb.net:27017], passives=[], arbiters=[], primary='ac-jpj8u7w-shard-00-02.gaiu0bm.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='aps1-az2'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='AP_SOUTH_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=7fffffff00000000000000fc, setVersion=297, topologyVersion=TopologyVersion{processId=68bc6ff18089fb46f6e6084b, counter=6}, lastWriteDate=Mon Sep 08 16:17:20 IST 2025, lastUpdateTimeNanos=161137061704400}
+16:17:25.875 [cluster-ClusterId{value='68bea5e38349555b6e1ef000', description='null'}-ac-jpj8u7w-shard-00-02.gaiu0bm.mongodb.net:27017] INFO  org.mongodb.driver.cluster -- Discovered replica set primary ac-jpj8u7w-shard-00-02.gaiu0bm.mongodb.net:27017
+16:17:35.481 [cluster-rtt-ClusterId{value='68bea5e38349555b6e1ef000', description='null'}-ac-jpj8u7w-shard-00-00.gaiu0bm.mongodb.net:27017] INFO  org.mongodb.driver.connection -- Opened connection [connectionId{localValue:81, serverValue:46681}] to ac-jpj8u7w-shard-00-00.gaiu0bm.mongodb.net:27017
