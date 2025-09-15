@@ -15,7 +15,6 @@ target/
 *.properties
 *.yml
 *.log
-/application.properties
 ### IntelliJ IDEA ###
 .idea
 *.iws
