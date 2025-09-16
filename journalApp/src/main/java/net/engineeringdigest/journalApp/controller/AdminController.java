@@ -1,6 +1,8 @@
 package net.engineeringdigest.journalApp.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import net.engineeringdigest.journalApp.cache.AppCache;
+import net.engineeringdigest.journalApp.dto.UserSignUp;
 import net.engineeringdigest.journalApp.entity.JournalEntry;
 import net.engineeringdigest.journalApp.entity.User;
 import net.engineeringdigest.journalApp.service.UserService;
@@ -13,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/admin")
+@Tag(name = "Admin APIs", description = "Handle Users, Create admin user")
 public class AdminController {
 
     @Autowired
@@ -31,7 +34,12 @@ public class AdminController {
     }
 
     @PostMapping("/create-Admin")
-    public ResponseEntity<?> createAdmin(@RequestBody User user){
+    public ResponseEntity<?> createAdmin(@RequestBody UserSignUp newUser){
+        User user = new User();
+        user.setUserName(newUser.getUserName());
+        user.setSentimentAnalysis(newUser.isSentimentAnalysis());
+        user.setEmail(newUser.getEmail());
+        user.setPassword(newUser.getPassword());
         userService.saveAdmin(user);
         return new ResponseEntity<>(true,HttpStatus.CREATED);
     }

@@ -1,6 +1,9 @@
 package net.engineeringdigest.journalApp.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
+import net.engineeringdigest.journalApp.dto.UserLogin;
+import net.engineeringdigest.journalApp.dto.UserSignUp;
 import net.engineeringdigest.journalApp.entity.User;
 import net.engineeringdigest.journalApp.service.UserDetailsServiceImpl;
 import net.engineeringdigest.journalApp.service.UserService;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RestController
 @RequestMapping("/public")
+@Tag(name = "Public APIs", description = "Not required authentication")
 public class PublicController {
 
     @Autowired
@@ -36,13 +40,18 @@ public class PublicController {
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<?> signUp(@RequestBody User myEntry){
-        userService.saveNewUser(myEntry);
+    public ResponseEntity<?> signUp(@RequestBody UserSignUp myEntry){
+        User newUser = new User();
+        newUser.setEmail(myEntry.getEmail());
+        newUser.setUserName(myEntry.getUserName());
+        newUser.setSentimentAnalysis(myEntry.isSentimentAnalysis());
+        newUser.setPassword(myEntry.getPassword());
+        userService.saveNewUser(newUser);
         return  new ResponseEntity<>(true, HttpStatus.CREATED);
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody User myEntry){
+    public ResponseEntity<String> login(@RequestBody UserLogin myEntry){
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(

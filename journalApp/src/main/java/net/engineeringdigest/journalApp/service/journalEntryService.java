@@ -1,5 +1,6 @@
 package net.engineeringdigest.journalApp.service;
 
+import lombok.extern.slf4j.Slf4j;
 import net.engineeringdigest.journalApp.entity.JournalEntry;
 import net.engineeringdigest.journalApp.entity.User;
 import net.engineeringdigest.journalApp.repository.journalEntryRepository;
@@ -12,6 +13,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 @Service
 public class journalEntryService {
 
@@ -57,8 +59,7 @@ public class journalEntryService {
                 repo.deleteById(id);
             }
         } catch (Exception e) {
-            System.out.println(e);
-            throw new RuntimeException(e);
+            log.error("Exception occured while deleting the user " +e);
         }
         return removed;
     }

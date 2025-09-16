@@ -1,6 +1,8 @@
 package net.engineeringdigest.journalApp.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import net.engineeringdigest.journalApp.api.response.weatherResponse;
+import net.engineeringdigest.journalApp.dto.UserLogin;
 import net.engineeringdigest.journalApp.entity.User;
 import net.engineeringdigest.journalApp.service.UserService;
 import net.engineeringdigest.journalApp.service.weatherService;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
+@Tag(name = "User APIs", description = "Read, Update & Delete User")
 public class UserController {
 
     @Autowired
@@ -33,7 +36,7 @@ public class UserController {
     }
 
     @PutMapping
-    public ResponseEntity<?> update(@RequestBody User newEntry){
+    public ResponseEntity<?> update(@RequestBody UserLogin newEntry){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
         User userInDb = userService.findByUserName(username);
