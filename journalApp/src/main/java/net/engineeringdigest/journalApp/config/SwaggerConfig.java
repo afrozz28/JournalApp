@@ -24,7 +24,7 @@ public class SwaggerConfig {
                         .description("By Afroz")
                 )
                 .servers(Arrays.asList(new Server().url("http://localhost:8080").description("local"),
-                                new Server().url("http://localhost:8081").description("live"))
+                                new Server().url("https://journalapp-gipi.onrender.com").description("live"))
                 )
                 .addSecurityItem(new SecurityRequirement().addList("bearerAuth"))
                 .components(new Components().addSecuritySchemes(
