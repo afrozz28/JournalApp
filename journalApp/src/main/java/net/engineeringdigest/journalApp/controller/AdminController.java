@@ -1,9 +1,9 @@
 package net.engineeringdigest.journalApp.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import net.engineeringdigest.journalApp.cache.AppCache;
 import net.engineeringdigest.journalApp.dto.UserSignUp;
-import net.engineeringdigest.journalApp.entity.JournalEntry;
 import net.engineeringdigest.journalApp.entity.User;
 import net.engineeringdigest.journalApp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +24,7 @@ public class AdminController {
     @Autowired
     private AppCache appCache;
 
+    @Operation(summary = "Get all users", description = "Make sure you authorized as a admin")
     @GetMapping("/all-users")
     public ResponseEntity<?> getAllUsers(){
         List<User> all = userService.getAll();
@@ -33,6 +34,7 @@ public class AdminController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+    @Operation(summary = "Create admin user", description = "Make sure you authorized as a admin")
     @PostMapping("/create-Admin")
     public ResponseEntity<?> createAdmin(@RequestBody UserSignUp newUser){
         User user = new User();
@@ -44,6 +46,7 @@ public class AdminController {
         return new ResponseEntity<>(true,HttpStatus.CREATED);
     }
 
+    @Operation(summary = "Clear weather data from cache", description = "Make sure you authorized as a admin")
     @GetMapping("/clear-app-cache")
     public void clearAppCache(){
         appCache.init();

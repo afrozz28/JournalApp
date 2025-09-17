@@ -1,5 +1,6 @@
 package net.engineeringdigest.journalApp.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import net.engineeringdigest.journalApp.dto.JournalEntryDto;
@@ -32,6 +33,7 @@ public class JournalEntryController {
     @Autowired
     private UserService userService;
 
+    @Operation(summary = "Find all your journalEntries", description = "Make sure you authorized")
     @GetMapping
     public ResponseEntity<?> getAllJournalEntriesOfUser(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -44,6 +46,7 @@ public class JournalEntryController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);  //Not implemented Response from server Apache we're using here.
     }
 
+    @Operation(summary = "Create a journalEntry", description = "Make sure you authorized")
     @PostMapping
     public ResponseEntity<JournalEntry> createEntry(@RequestBody JournalEntryDto entry){
         try {
@@ -61,6 +64,10 @@ public class JournalEntryController {
 
     }
 
+    @Operation(
+            summary = "Find journalEntry",
+            description = "Find an existing entry by its ID and make sure you authorized"
+    )
     @GetMapping("/id/{myId}")
     public ResponseEntity<JournalEntry> getJournalEntryById(@PathVariable String myId){
         ObjectId ObjectId = new ObjectId(myId);
@@ -77,6 +84,10 @@ public class JournalEntryController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+    @Operation(
+            summary = "Delete journalEntry",
+            description = "Delete an existing entry by its ID and make sure you authorized"
+    )
     @DeleteMapping("/id/{myId}")
     @Transactional
     public ResponseEntity<?> deleteJournalEntry(@PathVariable String myId){
@@ -91,6 +102,10 @@ public class JournalEntryController {
 
     }
 
+    @Operation(
+            summary = "Update journalEntry",
+            description = "Updates an existing entry by its ID and make sure you authorized"
+    )
     @PutMapping("/id/{myId}")
     @Transactional
     public ResponseEntity<?> updateJournalEntry(@PathVariable String myId, @RequestBody JournalEntryDto newEntry){

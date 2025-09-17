@@ -1,5 +1,6 @@
 package net.engineeringdigest.journalApp.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import net.engineeringdigest.journalApp.api.response.weatherResponse;
 import net.engineeringdigest.journalApp.dto.UserLogin;
@@ -24,10 +25,11 @@ public class UserController {
     @Autowired
     private weatherService weatherService;
 
-    @GetMapping
-    public ResponseEntity<?> gretting(){
+    @Operation(summary = "Check weather", description = "Make sure you authorized")
+    @GetMapping("/weatherInfo/{city}")
+    public ResponseEntity<?> greeting(@PathVariable String city){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        weatherResponse weatherResponse = weatherService.getWeather("Mumbai");
+        weatherResponse weatherResponse = weatherService.getWeather(city);
         String greething = "";
         if (weatherResponse != null){
             greething = ", Weather feels like " +weatherResponse.getCurrent().getFeelslike();
@@ -35,7 +37,8 @@ public class UserController {
         return new ResponseEntity<>("Hi " + authentication.getName() + greething ,HttpStatus.OK);
     }
 
-    @PutMapping
+    @Operation(summary = "Update user information", description = "Make sure you authorized")
+    @PutMapping("/update-user")
     public ResponseEntity<?> update(@RequestBody UserLogin newEntry){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
@@ -47,6 +50,7 @@ public class UserController {
 
     }
 
+    @Operation(summary = "Delete User", description = "Make sure you authorized")
     @DeleteMapping
     public ResponseEntity<?> deleteByUserName(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

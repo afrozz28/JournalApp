@@ -1,5 +1,6 @@
 package net.engineeringdigest.journalApp.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import net.engineeringdigest.journalApp.dto.UserLogin;
@@ -20,7 +21,7 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RestController
 @RequestMapping("/public")
-@Tag(name = "Public APIs", description = "Not required authentication")
+@Tag(name = "Public APIs", description = "Allow everyone to hit API authorization is not required")
 public class PublicController {
 
     @Autowired
@@ -34,10 +35,12 @@ public class PublicController {
     @Autowired
     private JwtUtil jwtUtil;
 
+    @Operation(summary = "Check for response")
     @GetMapping("/health-care")
     public String healthcare() {
         return ("ok");
     }
+
 
     @PostMapping("/signup")
     public ResponseEntity<?> signUp(@RequestBody UserSignUp myEntry){
@@ -49,6 +52,7 @@ public class PublicController {
         userService.saveNewUser(newUser);
         return  new ResponseEntity<>(true, HttpStatus.CREATED);
     }
+
 
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody UserLogin myEntry){
