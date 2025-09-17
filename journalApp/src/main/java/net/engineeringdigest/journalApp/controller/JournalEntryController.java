@@ -27,7 +27,7 @@ import java.util.stream.Collectors;
 public class JournalEntryController {
 
     @Autowired
-    private journalEntryService service;
+    private journalEntryService journalEntryService;
 
     @Autowired
     private UserService userService;
@@ -53,7 +53,7 @@ public class JournalEntryController {
             myEntry.setTitle(entry.getTitle());
             myEntry.setSentiment(entry.getSentiment());
             myEntry.setContent(entry.getContent());
-            service.saveEntry(myEntry,userName);
+            journalEntryService.saveEntry(myEntry,userName);
             return new ResponseEntity<>(myEntry,HttpStatus.CREATED);
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -69,7 +69,7 @@ public class JournalEntryController {
         User user = userService.findByUserName(userName);
         List<JournalEntry> collect = user.getJournalEntries().stream().filter(x -> x.getId().equals(ObjectId)).collect(Collectors.toList());
         if (!collect.isEmpty()){
-            Optional<JournalEntry> journalEntry = service.findById(ObjectId);
+            Optional<JournalEntry> journalEntry = journalEntryService.findById(ObjectId);
             if (journalEntry.isPresent()){
                 return new ResponseEntity<>(journalEntry.get(), HttpStatus.OK);
             }
@@ -83,7 +83,7 @@ public class JournalEntryController {
         ObjectId ObjectId = new ObjectId(myId);
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String userName = authentication.getName();
-        if (service.deleteById(ObjectId,userName)){ //deleting + returning true
+        if (journalEntryService.deleteById(ObjectId,userName)){ //deleting + returning true
             return new ResponseEntity<>(true,HttpStatus.NO_CONTENT);
         }else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -101,13 +101,13 @@ public class JournalEntryController {
             User user = userService.findByUserName(userName);
             List<JournalEntry> collect = user.getJournalEntries().stream().filter(x -> x.getId().equals(ObjectId)).collect(Collectors.toList());
             if (!collect.isEmpty()){
-                Optional<JournalEntry> journalEntry = service.findById(ObjectId);
-                JournalEntry old = service.findById(ObjectId).orElse(null);
+                Optional<JournalEntry> journalEntry = journalEntryService.findById(ObjectId);
+                JournalEntry old = journalEntryService.findById(ObjectId).orElse(null);
                 if (journalEntry.isPresent()){
                     old.setTitle(newEntry.getTitle() != null && !newEntry.getTitle().equals("") ? newEntry.getTitle() : old.getTitle());
                     old.setContent(newEntry.getContent() != null && !newEntry.getContent().equals("") ? newEntry.getContent(): old.getContent());
                 }
-                service.saveEntry(old);
+                journalEntryService.saveEntry(old);
                 return new ResponseEntity<>(true,HttpStatus.OK);
             }
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
