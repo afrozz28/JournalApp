@@ -32,6 +32,12 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
+# Ignore build outputs
+/target/
+/**/target/
+
+# Ignore only the compiled copy of application.properties
+target/classes/application.properties
 
 ### VS Code ###
 .vscode/
